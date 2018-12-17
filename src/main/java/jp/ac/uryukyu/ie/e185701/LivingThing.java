@@ -6,6 +6,7 @@ public class LivingThing {
     private int attack;
     private boolean dead;
 
+
     public LivingThing(String name,int hitPoint,int attack){
         this.name = name;
         this.hitPoint = hitPoint;
@@ -20,6 +21,7 @@ public class LivingThing {
     public String getName(){
         return name;
     }
+
     public void attack(LivingThing opponent){
         if(dead == false){
             int damage = (int)(Math.random() * attack);
@@ -27,6 +29,11 @@ public class LivingThing {
             opponent.wounded(damage);
         }
     }
+    /**
+     * 自身へ攻撃されたときのダメージ処理をするメソッド。
+     * 指定されたダメージを hitPoint から引き、死亡判定を行う。
+     * @param damage 受けたダメージ
+     */
 
     public void wounded(int damage){
         hitPoint -= damage;
